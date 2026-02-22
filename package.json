@@ -1,0 +1,13 @@
+{
+  "name": "apilab",
+  "version": "1.0.0",
+  "description": "Ferramenta para testes de API no frontend",
+  "main": "src/js/api_lab.js",
+  "type": "module", 
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["api", "postman", "fetch"],
+  "author": "Johny",
+  "license": "MIT"
+}

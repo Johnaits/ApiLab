@@ -1,0 +1,426 @@
+/* --- VARIAVEIS E TEMA --- */
+:root {
+    /* Cores Padrão (Dark Mode) */
+    --pm-bg-color: #212121;
+    --pm-input-bg: #303030;
+    --pm-border: #444444;
+    --pm-text-primary: #e0e0e0;
+    --pm-text-secondary: #888888;
+    --pm-accent: #FF6C37;
+    --pm-accent-hover: #e65220;
+    --pm-console-bg: #111111;
+    --pm-console-text: #a9b7c6;
+    
+    --pm-color-scheme: dark;
+}
+
+.pm-theme-light {
+    --pm-bg-color: #ffffff;
+    --pm-input-bg: #f3f4f6;
+    --pm-border: #d1d5db;
+    --pm-text-primary: #1f2937;
+    --pm-text-secondary: #6b7280;
+    --pm-accent: #2563eb;
+    --pm-accent-hover: #1d4ed8;
+    --pm-console-bg: #f8fafc;
+    --pm-console-text: #334155;
+    
+    --pm-color-scheme: light;
+}
+
+/* --- ESTRUTURA PRINCIPAL --- */
+.pm-ui-container {
+    background-color: var(--pm-bg-color);
+    color: var(--pm-text-primary);
+    font-family: 'Inter', sans-serif;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--pm-border);
+    transition: background-color 0.3s, color 0.3s;
+    
+    position: relative; 
+    width: 100%; 
+    max-width: 100%;
+    
+    min-width: 400px;
+    min-height: 350px;
+    
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+/* Modo Tela Cheia */
+.pm-ui-container.pm-fullscreen {
+    position: fixed !important;
+    top: 0 !important; 
+    left: 0 !important; 
+    right: 0 !important; 
+    bottom: 0 !important;
+    width: 100vw !important; 
+    height: 100vh !important;
+    max-width: none !important; 
+    max-height: none !important;
+    border-radius: 0 !important;
+    z-index: 2147483647 !important;
+    margin: 0 !important;
+}
+
+.pm-ui-container.pm-fullscreen .pm-ui-resize-handle { 
+    display: none; 
+}
+
+/* Handle de Redimensionamento */
+.pm-ui-resize-handle {
+    position: absolute;
+    bottom: 2px; 
+    right: 2px; 
+    width: 15px; 
+    height: 15px;
+    cursor: nwse-resize; 
+    z-index: 10;
+    background: linear-gradient(135deg, transparent 50%, var(--pm-border) 50%);
+    opacity: 0.7; 
+    border-bottom-right-radius: 6px;
+}
+.pm-ui-resize-handle:hover { 
+    opacity: 1; 
+    background: linear-gradient(135deg, transparent 50%, var(--pm-accent) 50%); 
+}
+
+/* --- CABEÇALHO --- */
+.pm-ui-head-group { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 15px; 
+    padding-bottom: 10px; 
+    border-bottom: 1px solid var(--pm-border); 
+}
+
+.pm-ui-head-tools { 
+    display: flex; 
+    align-items: center; 
+    gap: 8px; 
+}
+
+.pm-ui-brand { 
+    font-size: 16px; 
+    font-weight: 800; 
+    color: var(--pm-accent); 
+    letter-spacing: -0.5px; 
+}
+
+.pm-ui-head-btn {
+    background: transparent; 
+    border: 1px solid var(--pm-border); 
+    color: var(--pm-text-secondary);
+    padding: 6px 10px; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    font-size: 14px; 
+    transition: all 0.2s;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+}
+.pm-ui-head-btn:hover { 
+    color: var(--pm-text-primary); 
+    border-color: var(--pm-text-primary); 
+    background-color: var(--pm-input-bg); 
+}
+
+/* --- TÍTULO DA REQUISIÇÃO --- */
+.pm-ui-title-group { 
+    margin-bottom: 8px; 
+    flex-shrink: 0; 
+}
+
+.pm-ui-title-input {
+    width: 100%; 
+    background: transparent; 
+    border: none; 
+    border-bottom: 1px solid var(--pm-border);
+    color: var(--pm-text-primary); 
+    font-size: 14px; 
+    font-weight: 600; 
+    padding: 5px 0; 
+    outline: none;
+    transition: border-color 0.2s;
+}
+.pm-ui-title-input:hover,
+.pm-ui-title-input:focus {
+    border-bottom-color: var(--pm-border);
+}
+.pm-ui-title-input::placeholder {
+    color: var(--pm-text-secondary);
+    font-style: italic;
+    font-weight: normal;
+}
+
+/* --- BARRA DE URL E SELECT --- */
+.pm-ui-group { 
+    display: flex; 
+    gap: 0; 
+    background-color: var(--pm-input-bg); 
+    border-radius: 4px; 
+    border: 1px solid var(--pm-border); 
+    margin-bottom: 15px; 
+    transition: border-color 0.2s; 
+    overflow: hidden; 
+    flex-shrink: 0; 
+}
+.pm-ui-group:focus-within { 
+    border-color: var(--pm-accent); 
+}
+
+.pm-ui-select { 
+    background: transparent; 
+    color: var(--pm-text-primary); 
+    border: none; 
+    border-right: 1px solid var(--pm-border); 
+    padding: 10px 15px; 
+    font-weight: 600; 
+    outline: none; 
+    cursor: pointer; 
+}
+.pm-ui-select option { 
+    background-color: var(--pm-bg-color); 
+    color: var(--pm-text-primary); 
+}
+
+.pm-ui-input { 
+    flex: 1; 
+    background: transparent; 
+    color: var(--pm-text-primary); 
+    border: none; 
+    padding: 10px; 
+    font-family: monospace; 
+    font-size: 14px; 
+    outline: none; 
+    color-scheme: var(--pm-color-scheme); 
+    caret-color: var(--pm-text-primary); 
+}
+
+/* Autofill Hack para fundo amarelo indesejado */
+.pm-ui-input:-webkit-autofill,
+.pm-ui-input:-webkit-autofill:hover, 
+.pm-ui-input:-webkit-autofill:focus, 
+.pm-ui-input:-webkit-autofill:active {
+    -webkit-text-fill-color: var(--pm-text-primary) !important;
+    -webkit-box-shadow: 0 0 0 1000px var(--pm-input-bg) inset !important;
+    box-shadow: 0 0 0 1000px var(--pm-input-bg) inset !important;
+    transition: background-color 99999s ease-in-out 0s;
+}
+
+/* Botão de Enviar */
+.pm-ui-btn { 
+    background-color: var(--pm-accent); 
+    color: white; 
+    border: none; 
+    padding: 0 24px; 
+    font-weight: 600; 
+    cursor: pointer; 
+    transition: background 0.2s; 
+    border-radius: 0; 
+}
+.pm-ui-btn:hover { 
+    background-color: var(--pm-accent-hover); 
+}
+.pm-ui-btn:disabled { 
+    background-color: var(--pm-border); 
+    color: var(--pm-text-secondary); 
+    cursor: not-allowed; 
+}
+
+.pm-ui-label { 
+    font-size: 0.75rem; 
+    color: var(--pm-text-secondary); 
+    margin-bottom: 6px; 
+    display: block; 
+    text-transform: uppercase; 
+    font-weight: 600; 
+}
+
+/* --- ABAS (TABS) --- */
+.pm-ui-tab-group { 
+    display: flex; 
+    gap: 20px; 
+    margin-bottom: 15px; 
+    border-bottom: 1px solid var(--pm-border); 
+    padding-bottom: 0; 
+}
+
+.pm-ui-tab-btn {
+    background: transparent; 
+    border: none; 
+    color: var(--pm-text-secondary); 
+    padding: 8px 12px;
+    cursor: pointer; 
+    font-size: 13px; 
+    font-weight: 600; 
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+}
+.pm-ui-tab-btn:hover { 
+    color: var(--pm-text-primary); 
+}
+.pm-ui-tab-btn.active { 
+    color: var(--pm-accent); 
+    border-bottom-color: var(--pm-accent); 
+}
+
+.pm-ui-tab-content { 
+    display: none; 
+    min-height: 120px; 
+}
+.pm-ui-tab-content.active { 
+    display: block; 
+}
+
+/* --- BODY EDITOR --- */
+.pm-ui-body-group { 
+    margin-bottom: 15px; 
+    display: flex; 
+    flex-direction: column; 
+}
+
+.pm-ui-body-input {
+    background-color: var(--pm-input-bg); 
+    color: var(--pm-text-primary); 
+    border: 1px solid var(--pm-border);
+    border-radius: 4px; 
+    padding: 10px; 
+    font-family: 'Consolas', 'Monaco', monospace; 
+    font-size: 13px;
+    min-height: 100px; 
+    outline: none; 
+    resize: vertical; 
+    white-space: pre; 
+    overflow-x: auto;
+    transition: border-color 0.2s;
+}
+.pm-ui-body-input:focus { 
+    border-color: var(--pm-accent); 
+}
+.pm-ui-body-input::placeholder { 
+    color: var(--pm-text-secondary); 
+    opacity: 0.6; 
+}
+
+/* --- HEADERS E AUTH --- */
+.pm-ui-panel-container { 
+    padding: 5px 0; 
+}
+
+.pm-ui-dynamic-row { 
+    display: flex; 
+    gap: 10px; 
+    margin-bottom: 8px; 
+    align-items: center; 
+}
+
+.pm-ui-remove-row-btn { 
+    background: transparent; 
+    border: none; 
+    color: var(--pm-text-secondary); 
+    cursor: pointer; 
+    font-size: 16px; 
+    padding: 0 5px; 
+    transition: color 0.2s;
+}
+.pm-ui-remove-row-btn:hover { 
+    color: #ff6b6b; 
+}
+
+.pm-ui-add-row-btn {
+    background: transparent; 
+    border: 1px dashed var(--pm-border); 
+    color: var(--pm-text-secondary);
+    padding: 5px 10px; 
+    font-size: 12px; 
+    cursor: pointer; 
+    border-radius: 4px; 
+    margin-top: 5px;
+    transition: all 0.2s;
+}
+.pm-ui-add-row-btn:hover { 
+    border-color: var(--pm-text-primary); 
+    color: var(--pm-text-primary); 
+}
+
+/* --- SEÇÃO DE RESPOSTAS E IFRAME --- */
+.pm-ui-response {
+    background-color: var(--pm-console-bg); 
+    color: var(--pm-console-text); 
+    padding: 15px;
+    border-radius: 4px; 
+    border: 1px solid var(--pm-border); 
+    flex: 1; 
+    min-height: 200px;
+    overflow: auto; 
+    font-family: monospace; 
+    font-size: 13px; 
+    white-space: pre-wrap; 
+    word-break: break-all;
+    position: relative; 
+    display: flex; 
+    flex-direction: column;
+}
+.pm-ui-response.preview-mode { 
+    padding: 0; 
+    overflow: hidden; 
+}
+.pm-ui-iframe-preview { 
+    width: 100%; 
+    height: 100%; 
+    border: none; 
+    background-color: white; 
+    display: block; 
+}
+
+/* --- FERRAMENTAS DE SALVAMENTO --- */
+.pm-ui-saved-select {
+    background-color: transparent; 
+    border: 1px solid var(--pm-border); 
+    color: var(--pm-text-secondary);
+    padding: 6px 10px; 
+    border-radius: 4px; 
+    font-size: 13px; 
+    outline: none; 
+    cursor: pointer;
+    min-width: 150px; 
+    max-width: 250px;
+    transition: all 0.2s;
+}
+.pm-ui-saved-select:hover,
+.pm-ui-saved-select:focus {
+    border-color: var(--pm-text-primary);
+    color: var(--pm-text-primary);
+    background-color: var(--pm-input-bg);
+}
+.pm-ui-saved-select option { 
+    background-color: var(--pm-bg-color); 
+    color: var(--pm-text-primary); 
+    padding: 10px; 
+}
+
+/* Botão Lixeira */
+.pm-ui-delete-btn {
+    background: transparent; 
+    border: 1px solid #772222; 
+    color: #ff6b6b; 
+    padding: 6px 10px;
+    border-radius: 4px; 
+    cursor: pointer; 
+    font-size: 14px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    transition: all 0.2s;
+}
+.pm-ui-delete-btn:hover { 
+    background-color: #3f1111; 
+    color: #ff8888; 
+    border-color: #ff4444; 
+}

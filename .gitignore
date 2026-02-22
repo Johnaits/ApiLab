@@ -1,0 +1,10 @@
+# Pastas do Node
+node_modules/
+
+# Arquivos do Sistema Operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos de IDEs
+.vscode/
+.idea/

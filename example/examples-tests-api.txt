@@ -1,0 +1,7 @@
+RETORNO JSON
+    GET: https://jsonplaceholder.typicode.com/posts
+    GET: https://jsonplaceholder.typicode.com/posts/1
+    POST: https://jsonplaceholder.typicode.com/posts | {"title": "Teste ApiLab", "body": "Conteúdo", "userId": 1}
+
+RETORNO HTML
+    GET: https://baconipsum.com/api/?type=all-meat&paras=2&format=html
