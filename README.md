@@ -32,14 +32,14 @@ Baixe ou clone o repositório e importe o CSS e o Módulo JS no seu projeto HTML
         });
     });
 </script>
-
-🛡️ Contornando o CORS (Proxy)
+```
+## 🛡️ Contornando o CORS (Proxy)
 Se você tentar acessar APIs externas diretamente do navegador, poderá enfrentar erros de CORS. Para resolver isso, o ApiLab suporta o roteamento via servidor usando um Proxy PHP simples.
 
 Basta hospedar o arquivo proxy.php no seu servidor e apontar na inicialização:
 proxyUrl: './proxy.php'
 
-📁 Estrutura do Projeto
+## 📁 Estrutura do Projeto
 /src: Contém o código fonte da biblioteca (CSS e JS separados por responsabilidade).
 
 /example: Contém o arquivo index.html de exemplo de uso e o proxy.php.
